@@ -15,7 +15,7 @@ use Sulu\Bundle\AdminBundle\Navigation\ContentNavigationProviderInterface;
 use Sulu\Component\Content\Structure;
 use Sulu\Component\Security\Authorization\SecurityCheckerInterface;
 
-class ContentContentNavigationProvider implements ContentNavigationProviderInterface
+class QrCodeContentNavigationProvider implements ContentNavigationProviderInterface
 {
     /**
      * @var SecurityCheckerInterface
@@ -42,7 +42,7 @@ class ContentContentNavigationProvider implements ContentNavigationProviderInter
      */
     public function getNavigationItems(array $options = array())
     {
-        $content = new ContentNavigationItem('content-navigation.contents.qr');
+        $content = new ContentNavigationItem('content-navigation.contents.qrcode');
         $content->setId('tab-qr');
         $content->setAction('qrcode');
         $content->setComponent('content/form@suluqrcode');

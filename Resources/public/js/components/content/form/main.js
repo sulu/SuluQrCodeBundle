@@ -7,7 +7,10 @@
  * with this source code in the file LICENSE.
  */
 
-define(['sulucontent/components/content/preview/main'], function(Preview) {
+define([
+    'sulucontent/components/content/preview/main',
+    'qrcode'
+], function(Preview, QRCode) {
 
     'use strict';
 
@@ -24,10 +27,19 @@ define(['sulucontent/components/content/preview/main'], function(Preview) {
         initialize: function() {
             this.sandbox.emit('husky.toolbar.header.item.enable', 'template', false);
 
-            this.preview = new Preview();
+            //this.preview = new Preview();
 
-            this.dfdListenForChange = this.sandbox.data.deferred();
-            this.load();
+            var test = new QRCode(this.$el.get(0), {
+
+                text: "http://jindo.dev.naver.com/collie",
+                width: 128,
+                height: 128,
+                colorDark : "#000000",
+                colorLight : "#ffffff",
+                correctLevel : QRCode.CorrectLevel.H
+            });
+
+            //this.dfdListenForChange = this.sandbox.data.deferred();
         }
     };
 });

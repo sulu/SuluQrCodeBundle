@@ -9,7 +9,13 @@
 
 require.config({
     paths: {
-        suluqrcode: '../../suluqrcode/js'
+        suluqrcode: '../../suluqrcode/js',
+        'qrcode': '../../suluqrcode/js/vendor/qrcode'
+    },
+    shim: {
+        'qrcode': {
+            exports: 'QRCode'
+        }
     }
 });
 

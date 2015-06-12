@@ -43,25 +43,8 @@ class QrCodeAdmin extends Admin
         $this->webspaceManager = $webspaceManager;
         $this->securityChecker = $securityChecker;
 
-
-//        $rootNavigationItem = new NavigationItem($title);
-//        $section = new NavigationItem('');
-//
-//        $settings = new NavigationItem('navigation.settings');
-//        $settings->setIcon('settings');
-//
-//        if ($this->securityChecker->hasPermission('sulu.settings.tags', 'view')) {
-//            $roles = new NavigationItem('navigation.settings.tags', $settings);
-//            $roles->setAction('settings/tags');
-//            $roles->setIcon('settings');
-//        }
-//
-//        if ($settings->hasChildren()) {
-//            $section->addChild($settings);
-//            $rootNavigationItem->addChild($section);
-//        }
-//
-//        $this->setNavigation(new Navigation($rootNavigationItem));
+        $rootNavigationItem = new NavigationItem($title);
+        $this->setNavigation(new Navigation($rootNavigationItem));
     }
 
     /**
