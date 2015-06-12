@@ -46,26 +46,9 @@ class QrCodeContentNavigationProvider implements ContentNavigationProviderInterf
         $content->setId('tab-qr');
         $content->setAction('qrcode');
         $content->setComponent('content/form@suluqrcode');
+        $content->setDisplay(array('edit'));
 
         $navigation = array($content);
-
-//        $securityContext = 'sulu.webspaces.' . $options['webspace'];
-//
-//        if ($this->enabledSecurity && $this->securityChecker->hasPermission($securityContext, 'security')) {
-//            $permissions = new ContentNavigationItem('Permissions');
-//            $permissions->setAction('permissions');
-//            $permissions->setDisplay(array('edit'));
-//            $permissions->setComponent('permission-tab@sulusecurity');
-//            $permissions->setComponentOptions(
-//                array(
-//                    'display' => 'form',
-//                    'type' => Structure::class,
-//                    'securityContext' => $securityContext,
-//                )
-//            );
-//
-//            $navigation[] = $permissions;
-//        }
 
         return $navigation;
     }

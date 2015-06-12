@@ -34,31 +34,42 @@ define([
             }.bind(this));
         },
 
-        getUrl: function() {
-            // TODO: implement
-            return this.data.url;
+        /**
+         * Adds tracking parameters to url
+         *
+         * @param string url
+         *
+         * @returns string
+         */
+        addTrackingParameters: function(url) {
+            var trackingUrl,
+                divider = '?';
+            if (url.indexOf('?') > -1) {
+                divider = '&';
+            }
+            trackingUrl = url + divider + 'utm_source=qr-sulu&utm_media=qr-code&utm_campaign=' + this.data.title;
+
+            return trackingUrl;
         },
 
         generateQrCode: function(element, width, height, foreground, background, svg) {
-
-            console.log(foreground, background);
-            if(width) {
+            if (width) {
                 width = 600;
             }
 
-            if(height) {
+            if (height) {
                 height = 600;
             }
 
-            if(foreground === false) {
+            if (foreground === false) {
                 foreground = '#000000';
             }
 
-            if(background === false) {
+            if (background === false) {
                 background = '#FFFFFF';
             }
 
-            if(svg) {
+            if (svg) {
                 svg = false;
             }
 
@@ -74,6 +85,22 @@ define([
                     useSVG: svg
                 }
             );
+        },
+
+        /**
+         * Get url of current page
+         *
+         * @param bool addTracking Defines if tracking params should be added
+         *
+         * @returns string
+         */
+        getUrl: function(addTracking) {
+            var baseUrl = window.location.origin,
+                pageUrl = baseUrl + '/qrl/' + this.data.id +
+                    '?locale=' + this.options.language +
+                    '&webspace=' + this.options.webspace;
+
+            return pageUrl;
         },
 
         initialize: function() {
@@ -113,8 +140,6 @@ define([
             this.sandbox.on('husky.select.background.selected.item', function(option) {
                 $('#qrCode').text('');
                 backgroundIndex = option;
-                console.log(background);
-                console.log(foreground);
                 this.generateQrCode(document.getElementById('qrCode'), 600, 600, colors[foregroundIndex], colors[backgroundIndex], true);
             }.bind(this));
         }
