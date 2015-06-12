@@ -35,62 +35,6 @@ define(['config'], function(Config) {
             function getContentLanguage() {
                 return sandbox.sulu.getUserSetting('contentLanguage') || Object.keys(Config.get('sulu-content').locales)[0];
             }
-
-            //// redirects to list with specific language
-            //sandbox.mvc.routes.push({
-            //    route: 'content/contents/:webspace',
-            //    callback: function(webspace) {
-            //        var language = getContentLanguage();
-            //        sandbox.emit('sulu.router.navigate', 'content/contents/' + webspace + '/' + language);
-            //    }
-            //});
-            //
-            //// list all contents for a language
-            //sandbox.mvc.routes.push({
-            //    route: 'content/contents/:webspace/:language',
-            //    callback: function(webspace, language) {
-            //        this.html('<div data-aura-component="content@sulucontent" data-aura-webspace="' + webspace + '" data-aura-language="' + language + '" data-aura-display="column" data-aura-preview="false"/>');
-            //    }
-            //});
-            //
-            //// show form for new content with a parent page
-            //sandbox.mvc.routes.push({
-            //    route: 'content/contents/:webspace/:language/add::id/:content',
-            //    callback: function(webspace, language, id, content) {
-            //        this.html(
-            //            '<div data-aura-component="content@sulucontent" data-aura-webspace="' + webspace + '" data-aura-language="' + language + '" data-aura-content="' + content + '" data-aura-parent="' + id + '"/>'
-            //        );
-            //    }
-            //});
-            //
-            //// show form for new content
-            //sandbox.mvc.routes.push({
-            //    route: 'content/contents/:webspace/:language/add/:content',
-            //    callback: function(webspace, language, content) {
-            //        this.html(
-            //            '<div data-aura-component="content@sulucontent" data-aura-webspace="' + webspace + '" data-aura-language="' + language + '" data-aura-content="' + content + '"/>'
-            //        );
-            //    }
-            //});
-            //
-            //// redirects to edit with specific language
-            //sandbox.mvc.routes.push({
-            //    route: 'content/contents/:webspace/edit::id/:content',
-            //    callback: function(webspace, id, content) {
-            //        var language = getContentLanguage();
-            //        sandbox.emit('sulu.router.navigate', 'content/contents/' + webspace + '/' + language + '/edit:' + id + '/' + content);
-            //    }
-            //});
-            //
-            //// show form for editing a content
-            //sandbox.mvc.routes.push({
-            //    route: 'content/contents/:webspace/:language/edit::id/:content',
-            //    callback: function(webspace, language, id, content) {
-            //        this.html(
-            //            '<div data-aura-component="content@sulucontent" data-aura-webspace="' + webspace + '" data-aura-language="' + language + '" data-aura-content="' + content + '" data-aura-id="' + id + '" data-aura-preview="true"/>'
-            //        );
-            //    }
-            //});
         }
     };
 });

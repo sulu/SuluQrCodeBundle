@@ -10,12 +10,14 @@
 
 namespace Sulu\Bundle\QrCodeBundle\Controller;
 
-use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Sulu\Component\Rest\RestController;
 
-class DefaultController extends Controller
+class TemplateController extends RestController
 {
-    public function indexAction($name)
+    public function qrcodeFormAction()
     {
-        return $this->render('SuluQrCodeBundle:Default:index.html.twig', array('name' => $name));
+        return $this->render(
+            'SuluQrCodeBundle:Template:qrcode.form.html.twig'
+        );
     }
 }
