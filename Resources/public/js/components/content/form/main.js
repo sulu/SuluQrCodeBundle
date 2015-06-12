@@ -58,7 +58,9 @@ define([
          */
         getUrl: function(addTracking) {
             var baseUrl = window.location.origin,
-                pageUrl = baseUrl + '/qrl/' + this.data.id + '?locale=' + this.data.concreteLanguages[0];
+                pageUrl = baseUrl + '/qrl/' + this.data.id +
+                    '?locale=' + this.options.language +
+                    '&webspace=' + this.options.webspace;
 
             return pageUrl;
         },
