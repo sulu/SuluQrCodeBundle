@@ -1,0 +1,114 @@
+<link rel="stylesheet" type="text/css" href="/bundles/suluqrcode/css/main.css"/>
+<section>
+    <div class="qr-code-container">
+        <div class="grid limited">
+            <div class="grid-row limited">
+                <div class="grid-col-4">
+                    QR-Code:
+                </div>
+                <div class="grid-col-8 limited">
+                    <div id="qrCode" class="limited">
+                    </div>
+                </div>
+            </div>
+            <div class="grid-row">
+                <div class="grid-col-4"></div>
+                <div class="grid-col-8 limited">
+                    Download as <a href="/">JPEG</a> or <a href="/">SVG</a> (vector for print)
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<section>
+    <div class="settings-headline grid-col-12">
+        <h2 class="divider m-bottom-20" title="Content Section">Settings</h2>
+    </div>
+    <div class="grid">
+        <div class="grid-row">
+            <div class="grid-col-12">
+                <label>
+                    Color
+                </label>
+            </div>
+        </div>
+        <div class="grid-row">
+            <div class="grid-col-6 form-group">
+                <label for="content-node-type">
+                    <span class="clickable">Foreground color</span>
+                </label>
+                <div id="foreground"
+                     data-aura-component="select@husky"
+                     data-aura-data='["Black", "White","Red", "Blue", "Green"]'
+                     data-aura-default-label="foreground"
+                     data-aura-value-name="foreground"
+                     data-aura-multiple-select="false"
+                     data-aura-instance-name="foreground"
+                     data-type-label="translation"
+                     data-type-required="translation"
+                     data-mapper-property="foreground"
+                     data-type="husky-select"
+                     data-validation-required="true"
+                     data-aura-pre-selected-elements='["Black"]'
+                     data-form="true">
+                </div>
+            </div>
+        </div>
+        <div class="grid-row">
+            <div class="grid-col-6 form-group">
+                <label for="content-node-type">
+                    <span class="clickable">Background color</span>
+                </label>
+                <div id="background"
+                     data-aura-component="select@husky"
+                     data-aura-data='["Black", "White","Red", "Blue", "Green"]'
+                     data-aura-default-label="background"
+                     data-aura-value-name="background"
+                     data-aura-multiple-select="false"
+                     data-aura-instance-name="background"
+                     data-type-label="translation"
+                     data-type-required="translation"
+                     data-mapper-property="background"
+                     data-type="husky-select"
+                     data-validation-required="true"
+                     data-aura-pre-selected-elements='["White"]'
+                     data-form="true">
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="grid">
+        <div class="grid-row">
+            <div class="grid-col-12">
+                <label>
+                    Analytics Tracking
+                </label>
+            </div>
+        </div>
+        <div class="grid-row">
+            <label for="content-node-type">
+                <div class="custom-checkbox">
+                    <input  id="analytics" type="checkbox" name="analytics" checked="checked">
+                    <span class="icon"></span>
+                </div>
+                <span class="clickable">track scans via Google Campaign Link (recommended)</span>
+            </label>
+        </div>
+        <div class="grid-row">
+            <div class="grid-col-12">
+                <label>
+                    URL
+                </label>
+            </div>
+        </div>
+        <div class="grid-row">
+            <label for="content-node-type">
+                <div class="custom-checkbox">
+                    <input  id="analytics" type="checkbox" name="analytics">
+                    <span class="icon"></span>
+                </div>
+                <span class="clickable">show target URL in QR-Code</span>
+            </label>
+        </div>
+    </div>
+</section>
