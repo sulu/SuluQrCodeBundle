@@ -1,0 +1,29 @@
+<?xml version="1.0" ?>
+
+<container xmlns="http://symfony.com/schema/dic/services"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
+
+    <parameters>
+        <parameter key="sulu_qrcode.admin.class">Sulu\Bundle\QrCodeBundle\Admin\QrCodeAdmin</parameter>
+        <parameter key="sulu_qrcode.content_navigation_provider.class">Sulu\Bundle\QrCodeBundle\Admin\QrCodeContentNavigationProvider</parameter>
+    </parameters>
+
+    <services>
+        <!-- admin class -->
+        <service id="sulu_qrcode.admin" class="%sulu_qrcode.admin.class%">
+            <tag name="sulu.admin"/>
+            <tag name="sulu.context" context="admin"/>
+            <argument type="service" id="sulu_core.webspace.webspace_manager"/>
+            <argument type="service" id="sulu_security.security_checker"/>
+            <argument>%sulu_admin.name%</argument>
+        </service>
+
+        <!-- content -->
+        <service id="sulu_qrcode.content_navigation_provider" class="%sulu_qrcode.content_navigation_provider.class%">
+            <argument type="service" id="sulu_security.security_checker"/>
+            <tag name="sulu_admin.content_navigation" alias="content"/>
+            <tag name="sulu.context" context="admin"/>
+        </service>
+    </services>
+</container>
